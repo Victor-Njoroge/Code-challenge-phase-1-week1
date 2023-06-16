@@ -74,11 +74,30 @@ function taxation(){
         document.writeln(`NHIF deduction is ${NHIF}<br>`);
     }
 
+    var NSSF
+    var Tier = parseInt(prompt("Choose your NSSF tier group\n 1:Tier 1\n 2:Tier 2"));
+    if(Tier===1){
+        NSSF=grossSalary*0.06
+        if(NSSF<=360){
+            document.writeln(`NSSF contributions is ${NSSF}<br>`)
+        }else{
+            NSSF=360
+            document.writeln(`NSSF contributions is ${NSSF}<br>`);
+        }
+    }else if(Tier===2){
+        NSSF=grossSalary*0.06
+        if(NSSF<=1080){
+            document.writeln(`NSSF contributions is ${NSSF} <br>`)
+        }else{
+            NSSF=1080
+            document.writeln(`NSSF contributions is ${NSSF} <br>`)
+        }
+    }
 
 
 
-    var netSalary= grossSalary-paye-NHIF
-   document.writeln(`Your netSalary is ${netSalary}`)
+    var netSalary= grossSalary-paye-NHIF-NSSF
+   document.writeln(`Your Net Salary is ${netSalary}`)
 
 }
 taxation();
