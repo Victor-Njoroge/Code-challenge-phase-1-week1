@@ -1,5 +1,6 @@
 function inputMarks(){
     var studentsMarks=parseInt(prompt("Enter student Marks"));
+
     if(studentsMarks>=0 && studentsMarks<= 100){
         if(studentsMarks >79 && studentsMarks <=100){
             document.writeln("Grade A");
@@ -16,6 +17,7 @@ function inputMarks(){
     }else{
         return
     }
+
 }
 //inputMarks();
 
