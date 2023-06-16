@@ -94,9 +94,30 @@ function taxation(){
         }
     }
 
+    var FringeTax;
+    var loan=parseInt(prompt("Have you taken any loan\n 1:Yes\n 2:No"));
+    if(loan===1){
+        var currentDate= new Date();
+        var currentMonth = currentDate.getMonth();
+        if(currentMonth>=1 && currentMonth<=3){
+            FringeTax=grossSalary*0.07;
+            document.writeln(`Your Fringe tax is ${FringeTax}<br>`);
+        }else if(currentMonth>3 && currentMonth<=6){
+            FringeTax=grossSalary*0.07;
+            document.writeln(`Your Fringe tax is ${FringeTax}<br>`);
+        }else if(currentMonth>6 && currentMonth<=9){
+            FringeTax=grossSalary*0.08;
+            document.writeln(`Your Fringe tax is ${FringeTax}`)
+        }else if(currentMonth>9 && currentMonth<=12){
+            FringeTax=grossSalary*9;
+            document.writeln(`Your Fringe tax is ${FringeTax}`);
+        }
+    }else{
+
+    }
 
 
-    var netSalary= grossSalary-paye-NHIF-NSSF
+    var netSalary= grossSalary-paye-NHIF-NSSF-FringeTax
    document.writeln(`Your Net Salary is ${netSalary}`)
 
 }
