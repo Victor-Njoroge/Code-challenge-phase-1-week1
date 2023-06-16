@@ -1,15 +1,15 @@
 function taxation(){
-    var basicSalary=parseInt(prompt("Enter your Basic salary"));
-    var  benefits=parseInt(prompt("Enter your Benefits"));
+    var basicSalary=parseInt(prompt("Enter your Basic salary"));// prompt that allows user enter basic salary
+    var  benefits=parseInt(prompt("Enter your Benefits"));// prompt that allows user to enter benefits
 
-    var grossSalary=basicSalary+benefits;
-    document.writeln(`Gross Salary = ${grossSalary} <br>`);
+    var grossSalary=basicSalary+benefits; //arithmetic operations using the two varibles above
+    document.writeln(`Gross Salary = ${grossSalary} <br>`);// outputs the gross salary 
 
-    var annualGrossNet = grossSalary*12;
-    document.writeln(`Your annual Gross salary is ${annualGrossNet} <br>`);
+    var annualGrossNet = grossSalary*12;// calculates the annual gross net
+    document.writeln(`Your annual Gross salary is ${annualGrossNet} <br>`);//out puts the annual gross net
 
-    var paye;
-    if(grossSalary<=24000){
+    var paye;// variable declaration
+    if(grossSalary<=24000){ // if statement condition that is used to calculate PAYE
         paye = grossSalary*0.1
         document.writeln(`Tax paid is ${paye} <br>`);
     }else if(grossSalary>24000 && grossSalary<=32333){
@@ -21,7 +21,7 @@ function taxation(){
     }
 
     var NHIF
-    if(grossSalary<=5999){
+    if(grossSalary<=5999){//if statement used to calculate NHIF deductions
         NHIF=150;
         document.writeln(`NHIF deduction is ${NHIF} <br>`);
     }else if(grossSalary>=6000 && grossSalary <= 7999){
@@ -75,10 +75,10 @@ function taxation(){
     }
 
     var NSSF
-    var Tier = parseInt(prompt("Choose your NSSF tier group\n 1:Tier 1\n 2:Tier 2"));
+    var Tier = parseInt(prompt("Choose your NSSF tier group\n 1:Tier 1\n 2:Tier 2"));// prompt used to allow user to choose which tier group He or she belongs
     if(Tier===1){
         NSSF=grossSalary*0.06
-        if(NSSF<=360){
+        if(NSSF<=360){// if statement used to calculate NSSF deductions
             document.writeln(`NSSF contributions is ${NSSF}<br>`)
         }else{
             NSSF=360
@@ -94,12 +94,12 @@ function taxation(){
         }
     }
 
-    var FringeTax;
-    var loan=parseInt(prompt("Have you taken any loan\n 1:Yes\n 2:No"));
+    var FringeTax; 
+    var loan=parseInt(prompt("Have you taken any loan\n 1:Yes\n 2:No"));// a prompt box that allows user to indicate whether he or she has taken any loans
     if(loan===1){
-        var currentDate= new Date();
-        var currentMonth = currentDate.getMonth();
-        if(currentMonth>=1 && currentMonth<=3){
+        var currentDate= new Date();// used to get the current date
+        var currentMonth = currentDate.getMonth();// used to get current month
+        if(currentMonth>=1 && currentMonth<=3){// if statement use to sort out which taxation period to be applied
             FringeTax=grossSalary*0.07;
             document.writeln(`Your Fringe tax is ${FringeTax}<br>`);
         }else if(currentMonth>3 && currentMonth<=6){
@@ -117,8 +117,8 @@ function taxation(){
     }
 
 
-    var netSalary= grossSalary-paye-NHIF-NSSF-FringeTax
+    var netSalary= grossSalary-paye-NHIF-NSSF-FringeTax// calculates total deductions and the remaining amount is the the Net salary
    document.writeln(`Your Net Salary is ${netSalary}`)
 
 }
-taxation();
+taxation();// function declaration
